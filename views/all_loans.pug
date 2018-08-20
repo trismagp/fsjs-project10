@@ -1,0 +1,37 @@
+extends layout
+
+block content
+
+  h1 Loans
+  p
+    a(href="new_loan" class="button") Create New Loan
+  p Filters
+    a(href="all_loans") All
+    | 
+    a(href="overdue_loans") Overdue 
+    | 
+    a(href="checked_loans") Checked Out
+  table
+    thead
+      tr
+        th Book
+        th Patron
+        th Loaned on
+        th Return by
+        th Returned on
+        th Action
+    tbody
+      //Loop through each patron in the database
+      tr
+        td 
+          a(href="book_detail") Book Title
+        td 
+          a(href="patron_detail") Patron Full Name
+        td 
+          YYYYY-MM-DD [Loaned on]
+        td 
+          YYYYY-MM-DD [Return by]
+        th 
+          YYYYY-MM-DD [Returned on]
+        td 
+          a(href="return_book" class="button") Return Book

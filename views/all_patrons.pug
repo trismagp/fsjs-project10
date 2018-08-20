@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+  h1 Patrons
+  p
+    a(href="new_patron" class="button") Create New Patron
+    table
+      thead
+        tr
+          th Name
+          th Address
+          th Email
+          th Library ID
+          th Zip
+      tbody
+        //Loop through each parton in the database
+        tr
+          td
+            a(href="patron_detail") Full Name
+          td address
+          td email
+          td Library ID
+          td zip

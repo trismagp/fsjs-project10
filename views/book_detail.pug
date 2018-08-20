@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  
+  h1 Book: #{title}
+  form
+    p
+      label(for="title") Title
+      input(id="title" type="text" value="#{title}")
+    p
+      label(for="author") Author
+      input(id="author" type="text" value="#{author}")
+    p
+      label(for="genre") Genre
+      input(id="genre" type="text" value="#{genre}")
+    p
+      label(for="first_published") First Published
+      input(id="first_published" type="text" value="#{first_published}")
+    p
+      input(type="submit" value="Update")
+
+  h2 Loan History
+  table
+    thead
+      tr
+        th Book
+        th Patron
+        th Loaned on
+        th Return by
+        th Returned on
+        th Action
+    tbody
+      tr
+        td a(href="book_detail") #{title}
+        td a(href="patron_detail") Patron full name
+        td YYYY-MM-DD [Loaned on]
+        td YYYY-MM-DD [Return by]
+        td YYYY-MM-DD [Return on]
+        td a(href="return_book" class="button") Return Book
