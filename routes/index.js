@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Book = require('../models').Book;
-// var Patron = require('../models').Patron;
-// var Loan = require('../models').Loan;
+var Patron = require('../models').Patron;
+var Loan = require('../models').Loan;
 
 
 router.get('/', function(req, res, next) {
@@ -12,9 +12,8 @@ router.get('/', function(req, res, next) {
 // Books -----------------------------------------------------------------------
 router.get('/books', function(req, res, next) {
   Book.findAll().then(function(books){
-    res.render('all_books');
+    res.render('all_books', { books: books });
   });
-
 });
 
 router.get('/books/new', function(req, res, next) {
