@@ -5,12 +5,17 @@ block content
   h1 Books
   p
     a(href="/books/new" class="button") Create New Book
-  p Filters
-    a(href="/books") All 
-    | 
-    a(href="/books/overdue") Overdue 
-    | 
-    a(href="/books/checked") Checked Out
+  nav
+    ul
+      li Filters
+      li
+        a(href="/books") All 
+        |
+      li 
+        a(href="/books/overdue") Overdue 
+        | 
+      li
+        a(href="/books/checked") Checked Out
   table
     thead
         tr
@@ -20,9 +25,9 @@ block content
           th Year Released
     tbody
       each book in books
-      tr
-        td
-          a(href="/books/#{book.id}") book.title
-        td book.author
-        td book.genre
-        td book.first_published
+        tr
+          td
+            a(href="/books/" + book.id) #{book.title}
+            td #{book.author}
+            td #{book.genre}
+            td #{book.first_published}

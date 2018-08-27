@@ -2,26 +2,26 @@ extends layout
 
 block content
 
-  h1 Patron: Andrew Chalkley
+  h1 Patron: #{patron.first_name} #{patron.last_name}
   form
     p
       label(for="first_name") First Name
-      input(id="first_name" type="text" value="Andrew")
+      input(id="first_name" type="text" value=patron.first_name)
     p
       label(for="last_name") Last Name
-      input(id="last_name" type="text" value="Chalkley")
+      input(id="last_name" type="text" value=patron.last_name)
     p
       label(for="address") Address
-      input(id="address" type="text" value="1234 NE 20st St")
+      input(id="address" type="text" value=patron.address)
     p
       label(for="email") Email
-      input(id="email" type="text" value="andrew.chalkley@teamtreehouse.com")
+      input(id="email" type="text" value=patron.email)
     p
       label(for="library_id") Library ID
-      input(id="library_id" type="text" value="MCL1001")
+      input(id="library_id" type="text" value=patron.library_id)
     p
       label(for="zip_code") Zip Code
-      input(id="zip_code" type="text" value="90210")
+      input(id="zip_code" type="text" value=patron.zip_code)
     p
       input(type="submit" value="Update")
 
@@ -37,9 +37,14 @@ block content
         th Action
     tbody
       tr
-        td a(href="book_detail") #{title}
-        td a(href="patron_detail") Andrew Chalkley
-        td 2015-12-11
-        td 2015-12-18
+        td Book Title
+          //- a(href="/books/" + book.id) #{book.title}
+          
         td
-        td a(href="return_book" class="button") Return Book
+          a(href="/patrons/" + patron.id) #{patron.first_name} #{patron.last_name}
+        td [2015-12-11]
+        td [2015-12-18]
+        td
+          
+        td
+          a(href="/books/return" class="button") Return Book

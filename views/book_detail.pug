@@ -2,20 +2,20 @@ extends layout
 
 block content
   
-  h1 Book: #{title}
+  h1 Book: #{book.title}
   form
     p
       label(for="title") Title
-      input(id="title" type="text" value="#{title}")
+      input(id="title" type="text" value=book.title)
     p
       label(for="author") Author
-      input(id="author" type="text" value="#{author}")
+      input(id="author" type="text" value=book.author)
     p
       label(for="genre") Genre
-      input(id="genre" type="text" value="#{genre}")
+      input(id="genre" type="text" value=book.genre)
     p
       label(for="first_published") First Published
-      input(id="first_published" type="text" value="#{first_published}")
+      input(id="first_published" type="text" value=book.first_published)
     p
       input(type="submit" value="Update")
 
@@ -31,9 +31,15 @@ block content
         th Action
     tbody
       tr
-        td a(href="book_detail") #{title}
-        td a(href="patron_detail") Patron full name
-        td YYYY-MM-DD [Loaned on]
-        td YYYY-MM-DD [Return by]
-        td YYYY-MM-DD [Return on]
-        td a(href="return_book" class="button") Return Book
+        td
+          a(href="book_detail") #{book.title}
+        td
+          a(href="patron_detail") Patron full name
+        td
+          YYYY-MM-DD [Loaned on]
+        td
+          YYYY-MM-DD [Return by]
+        td
+          YYYY-MM-DD [Return on]
+        td
+          a(href="return_book" class="button") Return Book
